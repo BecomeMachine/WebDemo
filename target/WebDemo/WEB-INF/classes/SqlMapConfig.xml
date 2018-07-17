@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!-- changes from the defaults -->
+        <setting name="lazyLoadingEnabled" value="false" />
+    </settings>
+    <typeAliases>
+        <!--这里给实体类取别名，方便在mapper配置文件中使用 -->
+        <typeAlias alias="Site" type="com.tang.demo.model.Site" />
+    </typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+				<property name="url" value="dbc:sqlserver://192.168.7.25:1433;Database = DB_FCS_City" />
+				<property name="username" value="fcs_admin" />
+				<property name="password" value="08520E49-349F" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+        <mapper resource="Site.xml" />
+    </mappers>
+
+</configuration>

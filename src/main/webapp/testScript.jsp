@@ -17,11 +17,17 @@
 <script type="text/javascript" src="<%=basePath%>JS/jquery.json-2.4.js"></script>
 <script>
 	$(document).ready(function() {
-		startTest();
+		startTestInterface();
+		//startTestView();
 	});
 	$(window).keydown(function(e) {
 		if (e.which == 69) {
-			startTest();
+			startTestInterface();
+		}
+	});
+	$(window).keydown(function(e) {
+		if (e.which == 70) {
+			startTestView();
 		}
 	});
 </script>

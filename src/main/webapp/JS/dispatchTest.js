@@ -1,12 +1,19 @@
-function startTest(){
-	//accessSystemData();
+function startTestInterface(){
+	accessSystemData();
 	//accessSystemData_Text();
 	//getReturnUsedRequestParam();
 	//getReturnUsedRequestBody();
-	defaultServletRequestParams();
+	//defaultServletRequestParams();
 	//getElevatorString();
 	//getElevatorObject();
 	//getElevatorObjectList();	
+};
+
+function startTestView(){
+	//getIndexView();
+	//mediaInfoWithAddObject();
+	//elevatorPageInfoWithModeMap();
+	//elevatorPageInfoWithHashMap();
 };
 
 function accessSystemData(){
@@ -184,6 +191,89 @@ function getElevatorObjectList(){
 		}
 	});
 
+};
+
+function getIndexView(){
+	
+	$.ajax({
+		url: "http://localhost:8080/WebDemo/pageDispatch/myIndex",
+		type: "GET",
+		data: null,		
+		dataType: 'text',
+		success: function(data){  
+			$('#show').append("--------------SUCCESS------------------");	
+			$('#show').append(data);
+		},
+		Error: function(error,exception){
+			alert("don't  alert");
+		}
+	});
+
+};
+
+function mediaInfoWithAddObject(){
+	var elevator = {"size": 2,
+			        "count": 3
+	};
+	var jsonStr = JSON.stringify(elevator);
+	$.ajax({
+		url: "http://localhost:8080/WebDemo/pageDispatch/mediaInfoWithAddObject",
+		type: "GET",
+		//contentType:"application/x-www-form-urlencoded; charset=utf-8",
+		dataType: 'text',
+		data: elevator,	
+		success: function(data){  
+			$('#show').append("--------------SUCCESS------------------");	
+			$('#show').append(data);
+		},
+		Error: function(error,exception){
+			alert("don't  alert");
+		}
+	});
+};
+
+
+function elevatorPageInfoWithModeMap(){
+	var elevator = {"elevatorID": 10,
+			        "elevatorName": "FWO"
+	};
+	var jsonStr = JSON.stringify(elevator);
+	$.ajax({
+		url: "http://localhost:8080/WebDemo/pageDispatch/elevatorPageInfoWithModeMap",
+		type: "GET",
+		contentType:"application/x-www-form-urlencoded; charset=utf-8",
+		dataType: 'text',
+		data: elevator,	
+		success: function(data){  
+			$('#show').append("--------------SUCCESS------------------");	
+			$('#show').append(data);
+		},
+		Error: function(error,exception){
+			alert("don't  alert");
+		}
+	});
+};
+
+
+function elevatorPageInfoWithHashMap(){
+	var elevator = {"elevatorID": 10,
+			        "elevatorName": "FWO"
+	};
+	var jsonStr = JSON.stringify(elevator);
+	$.ajax({
+		url: "http://localhost:8080/WebDemo/pageDispatch/elevatorPageInfoWithHashMap",
+		type: "GET",
+		contentType:"application/x-www-form-urlencoded; charset=utf-8",
+		dataType: 'text',
+		data: elevator,	
+		success: function(data){  
+			$('#show').append("--------------SUCCESS------------------");	
+			$('#show').append(data);
+		},
+		Error: function(error,exception){
+			alert("don't  alert");
+		}
+	});
 };
 
 

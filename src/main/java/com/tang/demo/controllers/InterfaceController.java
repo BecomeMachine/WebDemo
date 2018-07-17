@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tang.demo.bean.Elevator;
+import com.tang.demo.model.Site;
+import com.tang.demo.service.SiteService;
 
 
 
@@ -32,13 +35,17 @@ import com.tang.demo.bean.Elevator;
 public class InterfaceController {
 	
 	private final static Logger logger = Logger.getLogger(InterfaceController.class.getName());
-
+    @Autowired 
+    private SiteService siteServiceImpl;
 	/**
 	 * test connect
 	 */
 	@RequestMapping(value = "/accessSystemData")
 	public void accessSystemData() {
 		logger.info("----------accessSystemData---------------");
+		Site site = siteServiceImpl.getSiteByID(3125307L);
+		logger.info("-------" + site.toString() + "-----");
+		
 	}
 	
 	/**

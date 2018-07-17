@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace = "com.tang.demo.dao.SiteDao">    
+	<select id="getSiteByID" parameterType="long" resultType="Site">
+		SELECT  *   
+		FROM [DB_FCS_City].[schedule].[tbb_Site]
+		WHERE SaleRegionID = 35
+		AND SiteID = #{siteID}			
+	</select>
+
+	 <select id="getSiteListBySaleRegionID" parameterType="long"  resultType="Site">
+		SELECT TOP 10 *
+		FROM [DB_FCS_City].[schedule].[tbb_Site]
+		WHERE SaleRegionID = #{saleRegionID}
+	</select>
+</mapper>
