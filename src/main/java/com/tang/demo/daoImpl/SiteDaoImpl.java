@@ -4,6 +4,7 @@
 package com.tang.demo.daoImpl;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -12,7 +13,6 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
-import com.tang.demo.ModelMapper.SiteMapper;
 import com.tang.demo.dao.SiteDao;
 import com.tang.demo.model.Site;
 
@@ -69,9 +69,10 @@ public class SiteDaoImpl implements SiteDao {
 	@Override
 	public List<Site> getSiteListBySaleRegionID(Long saleRegionID) {
 		// TODO Auto-generated method stub
-		List<Site> siteList = null;
+		List<Site> siteList = new ArrayList<Site>();
 		try {
-			SiteDao mapper = session.getMapper(SiteDao.class);			
+			SiteDao mapper = session.getMapper(SiteDao.class);	
+			siteList = mapper.getSiteListBySaleRegionID(saleRegionID);
 			session.commit();
 			for (Site site : siteList) {
 				logger.info("------" +  site.toString() + "------");

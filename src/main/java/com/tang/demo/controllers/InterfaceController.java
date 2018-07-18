@@ -43,8 +43,10 @@ public class InterfaceController {
 	@RequestMapping(value = "/accessSystemData")
 	public void accessSystemData() {
 		logger.info("----------accessSystemData---------------");
-		Site site = siteServiceImpl.getSiteByID(3125307L);
+		Site site = siteServiceImpl.getSiteByID(3125312L);
+		List<Site> siteList = siteServiceImpl.getSiteListBySaleRegionID(35L);
 		logger.info("-------" + site.toString() + "-----");
+		logger.info("-------" + siteList.toString() + "-----");
 		
 	}
 	
